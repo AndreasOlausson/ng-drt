@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "ng-drt"
+  "defaultProject": "ng-drt",
+  "cli": {
+    "analytics": "5da2b24e-7bdd-4838-89a0-aab027f637ac"
+  }
 }
