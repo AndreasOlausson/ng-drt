@@ -102,11 +102,11 @@ export class DynamicResponsiveTableDirective implements AfterViewInit {
   initialize(reDraw: boolean = false): void {
     this.getTableElements();
     this.getTableHeaders();
-    this.addInfoColumnIfMissing();
-    this.collectColumnWidths(reDraw);
     this.getTableRows();
 
+    this.addInfoColumnIfMissing();
 
+    this.collectColumnWidths(reDraw);
     console.log('tableElement', this.tableElement);
     console.log('tableWrapperElement', this.tableWrapperElement);
     console.log('tableHeaders', this.tableHeaders);
@@ -147,7 +147,19 @@ export class DynamicResponsiveTableDirective implements AfterViewInit {
       const th: HTMLTableHeaderCellElement = document.createElement('th');
       th.classList.add(this.cssInfo);
       th.innerText = 'x';
+      console.log("This doesn't show up in the table, why?");
       this.tableHeaders.push(th);
+
+
+
+      this.tableBodyRows.forEach((r) => {
+        const td = document.createElement('td');
+        td.classList.add(this.cssInfo);
+        td.innerText = 'z';
+        r.appendChild(td);
+      });
+
+
     }
     console.log("do we have info-cell(s)", infoCells);
   }
